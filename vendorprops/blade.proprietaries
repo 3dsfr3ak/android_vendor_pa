@@ -1,0 +1,8 @@
+[
+    {
+        "account":      "XMasterNinni",
+        "repository":   "android_vendor_zte_blade",
+        "target_path":  "vendor/zte/blade",
+        "revision":     "master"
+    }
+]

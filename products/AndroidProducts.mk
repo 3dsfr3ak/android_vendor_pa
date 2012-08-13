@@ -16,3 +16,6 @@ endif
 ifeq (pa_skate,$(TARGET_PRODUCT))
     PRODUCT_MAKEFILES += $(LOCAL_DIR)/pa_skate.mk
 endif
+ifeq (pa_blade,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/pa_blade.mk
+endif
