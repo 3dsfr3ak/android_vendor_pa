@@ -5,8 +5,8 @@
 ## DEFAULTS
 %rom_tablet_base=128
 %rom_phone_base=240
-%rom_mid_base=160
-%rom_systemui_dpi=%rom_mid_base
+%rom_mid_base=170
+%rom_systemui_dpi=160
 %screen_default_width=320
 %screen_default_height=508
 %screen_default_layout=34
@@ -17,9 +17,9 @@
 ## CONFIGURATION
 %hybrid_mode=1
 %user_default_mode=1
-%system_default_dpi=%rom_phone_base
-%user_default_dpi=%rom_phone_base
-android.dpi=0
+%system_default_dpi=%rom_mid_base
+%user_default_dpi=%rom_mid_base
+android.dpi=%rom_mid_base
 com.android.systemui.dpi=%rom_systemui_dpi
 com.android.systemui.mode=2
 
@@ -38,7 +38,12 @@ com.android.email.dpi=%rom_mid_base
 com.android.email.mode=2
 com.android.vending.dpi=%rom_mid_base
 com.android.vending.mode=2
+com.android.phone.mode=1
+com.android.phone.dpi=%rom_phone_base
 com.google.android.gm.dpi=%rom_mid_base
 com.google.android.gm.mode=2
 com.google.android.talk.dpi=%rom_mid_base
 com.google.android.talk.mode=2
+com.google.android.googlequicksearchbox.mode=1
+com.google.android.googlequicksearchbox.dpi=%rom_mid_base
+
