@@ -1,0 +1,8 @@
+[
+    {
+        "account":      "tilal6991",
+        "repository":   "proprietary_vendor_zte",
+        "target_path":  "vendor/zte",
+        "revision":     "ics"
+    }
+]
