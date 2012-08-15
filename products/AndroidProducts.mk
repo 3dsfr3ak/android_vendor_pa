@@ -21,6 +21,7 @@ ifeq (pa_epicmtd,$(TARGET_PRODUCT))
 endif
 ifeq (pa_skate,$(TARGET_PRODUCT))
     PRODUCT_MAKEFILES += $(LOCAL_DIR)/pa_skate.mk
+endif
 ifeq (pa_galaxysmtd,$(TARGET_PRODUCT))
     PRODUCT_MAKEFILES += $(LOCAL_DIR)/pa_galaxysmtd.mk
 endif
