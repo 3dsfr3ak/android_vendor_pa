@@ -5,8 +5,8 @@
 ## DEFAULTS
 %rom_tablet_base=128
 %rom_phone_base=240
-%rom_mid_base=170
-%rom_systemui_dpi=160
+%rom_mid_base=200
+%rom_systemui_dpi=170
 %screen_default_width=320
 %screen_default_height=508
 %screen_default_layout=34
@@ -24,26 +24,15 @@ com.android.systemui.dpi=%rom_systemui_dpi
 com.android.systemui.mode=2
 
 ## PREFERENCES
-com.android.settings.dpi=%rom_mid_base
-com.android.settings.mode=2
-com.android.calendar.dpi=%rom_mid_base
-com.android.calendar.mode=2
-com.android.contacts.dpi=%rom_mid_base
-com.android.contacts.mode=2
-com.android.browser.dpi=%rom_mid_base
+com.android.browser.dpi=190
 com.android.browser.mode=2
 com.android.calculator2.dpi=%rom_tablet_base
 com.android.calculator2.mode=2
-com.android.email.dpi=%rom_mid_base
+com.android.email.dpi=190
 com.android.email.mode=2
-com.android.vending.dpi=%rom_mid_base
+com.android.vending.dpi=190
 com.android.vending.mode=2
-com.android.phone.mode=1
-com.android.phone.dpi=%rom_phone_base
-com.google.android.gm.dpi=%rom_mid_base
+com.google.android.gm.dpi=190
 com.google.android.gm.mode=2
-com.google.android.talk.dpi=%rom_mid_base
+com.google.android.talk.dpi=190
 com.google.android.talk.mode=2
-com.google.android.googlequicksearchbox.mode=1
-com.google.android.googlequicksearchbox.dpi=%rom_mid_base
-
