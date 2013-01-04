@@ -7,6 +7,9 @@ PARANOID_BOOTANIMATION_NAME := XHDPI
 # OVERLAY_TARGET adds overlay asset source
 OVERLAY_TARGET := pa_xhdpi
 
+# Build paprefs from sources
+PREFS_FROM_SOURCE := true
+
 # include ParanoidAndroid common configuration
 include vendor/pa/config/pa_common.mk
 
@@ -14,7 +17,7 @@ include vendor/pa/config/pa_common.mk
 PRODUCT_COPY_FILES += \
   vendor/pa/proprietary/maguro/bcm4330.hcd:system/vendor/firmware/bcm4330.hcd
 
-# Inherit CM9 device configuration
+# Inherit CM device configuration
 $(call inherit-product, device/samsung/maguro/cm.mk)
 
 PRODUCT_NAME := pa_maguro

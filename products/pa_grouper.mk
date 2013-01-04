@@ -5,7 +5,7 @@ ifeq (pa_grouper,$(TARGET_PRODUCT))
 PARANOID_BOOTANIMATION_NAME := XHDPI
 
 # OVERLAY_TARGET adds overlay asset source
-OVERLAY_TARGET := $(TARGET_PRODUCT)
+OVERLAY_TARGET := pa_tvdpi
 
 # include ParanoidAndroid common configuration
 include vendor/pa/config/pa_common.mk
@@ -14,7 +14,7 @@ include vendor/pa/config/pa_common.mk
 PRODUCT_COPY_FILES += \
   vendor/pa/proprietary/grouper/bcm4330.hcd:system/etc/firmware/bcm4330.hcd
 
-# Inherit CM9 device configuration
+# Inherit CM device configuration
 $(call inherit-product, device/asus/grouper/cm.mk)
 
 PRODUCT_NAME := pa_grouper

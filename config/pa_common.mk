@@ -7,7 +7,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Replace CM files
 PRODUCT_COPY_FILES += \
     vendor/pa/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
-    vendor/pa/prebuilt/common/apk/GooManager.apk:system/app/GooManager.apk
+    vendor/pa/prebuilt/common/apk/GooManager.apk:system/app/GooManager.apk \
+    vendor/pa/prebuilt/common/apk/SuperSU.apk:system/app/SuperSU.apk \
+    vendor/pa/prebuilt/common/xbin/su:system/xbin/su
+
+# Exclude prebuilt paprefs from builds if the flag is set
+ifneq ($(PREFS_FROM_SOURCE),true)
+    PRODUCT_COPY_FILES += \
+        vendor/pa/prebuilt/common/apk/ParanoidPreferences.apk:system/app/ParanoidPreferences.apk
+else
+    # Build paprefs from sources
+    PRODUCT_PACKAGES += \
+        ParanoidPreferences
+endif
 
 ifneq ($(PARANOID_BOOTANIMATION_NAME),)
     PRODUCT_COPY_FILES += \
@@ -16,16 +28,20 @@ else
     PRODUCT_COPY_FILES += \
         vendor/pa/prebuilt/common/bootanimation/HDPI.zip:system/media/bootanimation.zip
 endif
-    
-# ParanoidAndroid Packages
-PRODUCT_PACKAGES += \
-    ParanoidPreferences 
 
-# CyanogenMod Packages
+# ParanoidAndroid common packages
 PRODUCT_PACKAGES += \
-    Superuser \
-    Superuser.apk \
-    su
+    ParanoidWallpapers
+
+# device common prebuilts
+ifneq ($(DEVICE_COMMON),)
+    -include vendor/pa/prebuilt/$(DEVICE_COMMON)/prebuilt.mk
+endif
+
+# device specific prebuilts
+-include vendor/pa/prebuilt/$(TARGET_PRODUCT)/prebuilt.mk
+
+BOARD := $(subst pa_,,$(TARGET_PRODUCT))
 
 # ParanoidAndroid Overlays
 PRODUCT_PACKAGE_OVERLAYS += vendor/pa/overlay/common
@@ -43,23 +59,25 @@ PRODUCT_COPY_FILES += \
     vendor/pa/prebuilt/$(PA_CONF_SOURCE).conf:system/etc/paranoid/properties.conf \
     vendor/pa/prebuilt/$(PA_CONF_SOURCE).conf:system/etc/paranoid/backup.conf
 
-PA_VERSION_MAJOR = 1
-PA_VERSION_MINOR = 9
-PA_VERSION_MAINTENANCE = 92
+# Add CM release version
+CM_RELEASE := true
+CM_BUILD := $(BOARD)
+
+PA_VERSION_MAJOR = 2
+PA_VERSION_MINOR = 5
+PA_VERSION_MAINTENANCE = 3
 
 TARGET_CUSTOM_RELEASETOOL := vendor/pa/tools/squisher
 
 VERSION := $(PA_VERSION_MAJOR).$(PA_VERSION_MINOR)$(PA_VERSION_MAINTENANCE)
-CM_VERSION := PARANOIDANDROID
-PA_VERSION := $(CM_VERSION)-$(TARGET_PRODUCT)-$(VERSION)-$(shell date +%0d%^b%Y-%H%M%S)
+PA_VERSION := $(TARGET_PRODUCT)-$(VERSION)-$(shell date +%0d%^b%Y-%H%M%S)
 
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.cm.version=$(CM_VERSION) \
   ro.modversion=$(PA_VERSION) \
+  ro.pa.family=$(PA_CONF_SOURCE) \
   ro.pa.version=$(VERSION)
 
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.goo.developerid=paranoidandroid \
-  ro.goo.board=$(subst pa_,,$(TARGET_PRODUCT)) \
-  ro.goo.rom=$(TARGET_PRODUCT) \
+  ro.goo.rom=paranoidandroid \
   ro.goo.version=$(shell date +%s)
