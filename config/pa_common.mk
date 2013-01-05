@@ -77,7 +77,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
   ro.pa.family=$(PA_CONF_SOURCE) \
   ro.pa.version=$(VERSION)
 
+ifndef ENABLE_GOO
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.goo.developerid=paranoidandroid \
   ro.goo.rom=paranoidandroid \
   ro.goo.version=$(shell date +%s)
+endif
