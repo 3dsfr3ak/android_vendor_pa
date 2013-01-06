@@ -1,8 +1,8 @@
 [
     {
-        "account":      "tilal6991",
-        "repository":   "proprietary_vendor_zte",
-        "target_path":  "vendor/zte",
-        "revision":     "ics"
+        "account":      "C3C0",
+        "repository":   "android_vendor_zte_skate",
+        "target_path":  "vendor/zte/skate",
+        "revision":     "jellybean"
     }
 ]
