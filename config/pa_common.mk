@@ -30,8 +30,8 @@ else
 endif
 
 # ParanoidAndroid common packages
-PRODUCT_PACKAGES += \
-    ParanoidWallpapers
+#PRODUCT_PACKAGES += \
+#    ParanoidWallpapers
 
 # device common prebuilts
 ifneq ($(DEVICE_COMMON),)
