@@ -4,5 +4,11 @@
         "repository":   "android_vendor_zte_skate",
         "target_path":  "vendor/zte/skate",
         "revision":     "jellybean"
+    },
+    {
+        "account":      "C3C0",
+        "repository":   "zte_skate_35",
+        "target_path":  "kernel/zte/skate",
+        "branch":       "jellybean"
     }
 ]
